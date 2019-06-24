@@ -16,17 +16,27 @@ int Partition(int A[], int low, int high)
     A[low] = pivot;
     return low;
 };
+
+void QuickSort(int A[], int low, int high)
+{
+    if (low < high)
+    {
+        int piot = Partition(A, low, high);
+        QuickSort(A, low, piot - 1);
+        QuickSort(A, piot + 1, high);
+    }
+};
 int main()
 {
     int A[] = {46, 79, 56, 38, 40, 84};
 
-    int res = Partition(A, 0, 5);
-    for(int i = 0;i<6;i++){
+    QuickSort(A, 0, 5);
+    for (int i = 0; i < 6; i++)
+    {
         printf("%d\n", A[i]);
     }
 
     /* 我的第一个 C 程序 */
-    printf("%d\n", res);
     printf("Hello, World! \n");
 
     return 0;
